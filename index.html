@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moka event's</title>
+  <meta name="description" content="Moka event's - wedding planner. All my social links in one place" />
+  <meta property="og:image" content="mo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --muted:#000000;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family:'Castoro', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  color:#242222;
+
+  background:
+    radial-gradient(1200px at 20% -10%, rgba(231, 224, 224, 0.08), transparent 40%),
+    radial-gradient(800px at 90% 20%, rgba(0, 0, 0, 0.12), transparent 45%),
+    linear-gradient(180deg, #897f7f 0%, #b4cdf1 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+*{box-sizing:border-box}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+
+.card{
+  position: relative;
+  width:100%;
+  max-width:420px;
+  border-radius:22px;
+  padding:28px;
+
+  background: rgba(139, 150, 98, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border:1px solid rgba(126, 120, 120, 0.08);
+
+  box-shadow:
+    0 40px 90px rgba(13, 13, 6, 0.634),
+    0 0 60px rgba(2, 2, 3, 0.12),
+    inset 0 1px 0 rgba(234, 230, 230, 0.06);
+
+  animation: floatIn 1.1s ease-out;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:22px;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.3),
+    rgba(255,255,255,0.1),
+    rgba(0, 0, 0, 0.3)
+  );
+  filter: blur(20px);
+  opacity:.5;
+  z-index:-1;
+  animation: glowMove 6s ease-in-out infinite;
+}
+
+.top{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.avatar{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+h1{margin:10px 0 0;font-size:22px}
+h2{margin:6px 0 0;font-size:14px;color:var(--muted);font-weight:400}
+
+.links{
+  margin-top:18px;
+  display:grid;
+  gap:12px;
+}
+
+.link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  color:inherit;
+
+  background: rgba(0, 0, 0, 0.03);
+  border:1px solid rgba(5, 5, 5, 0.05);
+
+  transition: all .5s ease;
+}
+
+.link:hover{
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background: rgba(255,255,255,0.06);
+}
+
+.label{flex:1;text-align:right}
+.sub{
+  display:block;
+  font-weight:400;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.footer{
+  margin-top:18px;
+  text-align:center;
+  color:inherit;
+  font-size:12px;
+  opacity:.6;
+}
+.footer-link{
+    color: inherit;       
+    text-decoration: none; 
+    font-weight: 500;      
+}
+
+.footer-link:hover{
+    color: #ea0000;         
+}
+
+@keyframes floatIn{
+  from{
+    opacity:0;
+    transform: translateY(30px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glowMove{
+  0%{filter: blur(18px); opacity:.35;}
+  50%{filter: blur(28px); opacity:.6;}
+  100%{filter: blur(18px); opacity:.35;}
+}
+
+@media (max-width:420px){
+  .card{padding:20px}
+  .avatar{width:88px;height:88px}
+}
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="card">
+      <div class="top">
+        <img class="avatar" id="avatar" src="Black and Beige Aesthetic Event Planner Logo.png" alt="Moka event's">
+        <h1 id="displayName"></h1>
+        <h2 id="displayBioEn"> </h2>
+      </div>
+
+      <div class="links" id="links"></div>
+
+
+
+<div class="footer">
+  <a href="https://m7md-a7md.github.io/links/" class="footer-link">m7md-a7md</a> @
+</div>
+
+  <script>
+    const config = {
+      name: "Moka event's",
+      bioEn: ' wedding planner',
+      avatar:'Logo (1).png',
+
+      links: [
+        {title:'facebook',  url:'https://www.facebook.com/share/1DN2tp1Vvj/', icon:'facebook'},
+        {title:'whatsapp',  url:'https://wa.me/message/QRIR3RPAGPRBI1', icon:'whatsapp'},
+      ]
+    };
+
+    const svgs = {
+    facebook:`<svg width="20" height="20" viewBox="0 0 16 16 " fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg>`,
+    whatsapp:`<svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"</svg>`,
+    };
+
+    function build(){
+      document.getElementById('displayName').textContent = config.name;
+      document.getElementById('displayBioEn').textContent = config.bioEn;
+      document.getElementById('avatar').src = config.avatar;
+
+      const container = document.getElementById('links');
+      container.innerHTML = '';
+      config.links.forEach(item=>{
+        const a = document.createElement('a');
+        a.className = 'link';
+        a.href = item.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+
+        const icon = document.createElement('div');
+        icon.className = 'icon';
+        icon.innerHTML = svgs[item.icon] || '';
+
+        const lbl = document.createElement('div');
+        lbl.className = 'label';
+        lbl.innerHTML = `<span>${item.title}</span>`;
+
+        a.appendChild(icon);
+        a.appendChild(lbl);
+
+        a.addEventListener('click', ()=>{
+          try{ const key = 'clicks_'+item.title.replace(/\s+/g,'_');
+            localStorage.setItem(key, (parseInt(localStorage.getItem(key)||'0')+1).toString());
+          }catch(e){}
+        });
+
+        container.appendChild(a);
+      });
+    }
+
+    build();
+  </script>
+</body>
+
+</html>
