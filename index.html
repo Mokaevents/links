@@ -158,9 +158,35 @@ h2{margin:6px 0 0;font-size:14px;color:var(--muted);font-weight:400}
     font-weight: 500;      
 }
 
-.footer-link:hover{
-    color: #ea0000;         
+
+.glow-link{
+  position: relative;
+  color: #431b51;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  overflow: hidden;
 }
+
+.glow-link{
+  text-shadow:
+    0 0 8px rgba(92, 57, 181, 0.716),
+    0 0 18px rgba(132, 35, 206, 0.556);
+}
+
+
+
+
+
+
+.glow-link:hover{
+  text-shadow:
+    0 0 12px rgba(130, 48, 193, 0.9),
+    0 0 30px rgba(0,255,255,.7);
+}
+
 
 @keyframes floatIn{
   from{
@@ -199,8 +225,11 @@ h2{margin:6px 0 0;font-size:14px;color:var(--muted);font-weight:400}
 
 
 
-<div class="footer">
-  <a href="https://m7md-a7md.github.io/links/" class="footer-link">m7md-a7md</a> @
+  <div class="footer">
+  <a href="https://m7md-a7md.github.io/links/" class="glow-link">
+    m7md-a7md@ 
+    <span class="scan"></span>
+  </a> 
 </div>
 
   <script>
